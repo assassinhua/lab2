@@ -22,12 +22,14 @@ defineProps<{
 <template>
 <div class="event-class">
     <div class="event-card">
-      
+      <div class="category">  
+    <div class="organizer">
       <h2>{{ event.title }}</h2>
       <span>@{{ event.time }} on {{ event.date }}</span>
     </div>
   </div>
-
+</div>
+</div>
 </template>
 <style scoped>
 .event-card {
