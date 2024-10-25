@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-//import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/EventCard.vue'
 </script>
 
 <template>
@@ -19,7 +19,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 </template>
 
-<style scoped>
+<style>
 #layout {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -39,5 +39,8 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+h2 {
+  font-size: 20px;
 }
 </style>
