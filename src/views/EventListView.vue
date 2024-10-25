@@ -3,14 +3,13 @@ import EventCard from '@/components/EventCard.vue'
 import CategoryOrganizer from '@/components/CategoryOrganizer.vue'
 import type { Event } from '@/types'
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import EventService from '@/services/EventService'
 
-const events = ref<Event[]>(null)
+const events = ref<Event[]>()
   onMounted(() => {
-  axios
-    .get('[your mock server url]')
+    EventService.getEvents()
     .then((response) => {
-      console.log(response.data)
+      events.value = response.data
     })
     .catch((error) => {
       console.error('There was an error!', error)
@@ -24,10 +23,12 @@ const events = ref<Event[]>(null)
   <h1>Events For Good</h1>
   <!-- new element -->
 
- <div class="events">
-  <EventCard v-for="event in events" :key="event.id" :event="event" />
-  <CategoryOrganizer v-for="event in events" :key="event.id" :event="event" /> 
-   </div>
+  <div class="events">  
+  <div v-for="event in events" :key="event.id">  
+    <EventCard :event="event" />  
+    <CategoryOrganizer :event="event" />  
+  </div>  
+</div>
 
  
 
@@ -38,6 +39,7 @@ const events = ref<Event[]>(null)
   flex-direction: column;
   align-items: center;
 }
+
 </style>
 
 
